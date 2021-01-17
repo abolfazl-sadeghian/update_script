@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [[ ${UID} -ne 0 ]]
+then
+  echo "Please run the program as root"
+  echo
+  echo "$ sudo update"
+  echo
+  exit 1 
+fi
+echo""
+echo "Begining Update Process"
+echo ""
+apt-get update
+apt-get upgrade -y
+apt dist-upgrade -y
+apt autoremove
+
+echo
+echo "Done !"
+echo
